@@ -38,6 +38,8 @@ module.exports = {
         queryLimit: 1000, // Default to 100
         collectionTypes: [`product`, `category`],
         singleTypes: [`global`],
+        secretKey: "8a2611a33b9e5bf0233b6a9831781497",
+        downloadFiles: true,
       },
     },
     // You can have multiple instances of this plugin to create indexes with

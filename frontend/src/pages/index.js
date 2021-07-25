@@ -6,13 +6,17 @@ import SEO from "~/components/seo"
 import CategoryList from "~/components/category-list"
 import PageHeading from "~/components/styled/page-heading"
 
-const IndexPage = ({ data: { allStrapiCategory } }) => {
+const IndexPage = ({ data: { allStrapiCategory }, location: { search } }) => {
+  const queryParams = new URLSearchParams(search)
+  // Save tableId
+  window.localStorage.tableId = queryParams.get("tableId")
   const categories = allStrapiCategory.edges
+
   const seo = { title: "Categories" }
   return (
     <Layout>
       <SEO seo={seo} />
-      <PageHeading>Categories</PageHeading>
+      <PageHeading>Categories {queryParams.get("tableId")}</PageHeading>
       <CategoryList categories={categories} />
     </Layout>
   )
